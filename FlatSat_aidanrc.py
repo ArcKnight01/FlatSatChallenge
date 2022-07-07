@@ -35,14 +35,19 @@ print(image_dir)
 #function for uploading image to Github
 def git_push():
     try:
+        git_message = "New Photo"
         repo = Repo('/home/pi/FlatSatChallenge')
         repo.git.add('FlatSatChallenge/Images/aidanrc') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('New Photo')
+        
+        repo.index.commit(git_message)
         print('made the commit')
+
         origin = repo.remote('origin')
         print('added remote')
+
         origin.push()
         print('pushed changes')
+        
     except:
         print('Couldn\'t upload to git')
 
