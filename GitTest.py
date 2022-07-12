@@ -16,7 +16,7 @@ def git_push():
         print('pushed changes\n')
     except:
         print('couldn\'t upload to git\n')
-        
+
 #ADD YOUR NAME HERE
 name = "FIRSTLAST"
 
