@@ -1,3 +1,4 @@
+
 #NOTICE COMMENTS BEFORE TESTING
 
 from git import Repo
@@ -15,14 +16,14 @@ def git_push():
         origin.push()
         print('pushed changes\n')
     except:
-        print('couldn\'t upload to git\n')
-
+        print('couldn\'t upload to git\n')        
 #ADD YOUR NAME HERE
-name = "FIRSTLAST"
+name = "RanvithaMuramreddy"
 
 #REPLACE 'yourfolder' with the name of your directory, then Run it!
-f = open(r'/home/pi/FlatSatChallenge/Images/yourfolder/%s.txt' % name,'w')
+f = open(r'/home/pi/FlatSatChallenge/Images/ranvihta/%s.txt' % name,'w')
 f.write('%s' % name)
 f.close()
 
 git_push()
+
