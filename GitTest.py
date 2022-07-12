@@ -18,7 +18,7 @@ def git_push():
         print('couldn\'t upload to git\n')
         
 #ADD YOUR NAME HERE
-name = "FIRSTLAST"
+name = "HANNAHLEE"
 
 #REPLACE 'yourfolder' with the name of your directory, then Run it!
 f = open(r'/home/pi/FlatSatChallenge/Images/yourfolder/%s.txt' % name,'w')
