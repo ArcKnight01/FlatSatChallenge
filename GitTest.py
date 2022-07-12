@@ -21,7 +21,7 @@ def git_push():
 name = "StephenLe"
 
 #REPLACE 'yourfolder' with the name of your directory, then Run it!
-f = open(r'/home/pi/FlatSatChallenge/Images/StephenLe/%s.txt' % name,'w')
+f = open(r'/home/pi/FlatSatChallenge/Images/yourfolder/%s.txt' % name,'w')
 f.write('%s' % name)
 f.close()
 
