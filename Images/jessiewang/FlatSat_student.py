@@ -21,7 +21,7 @@ camera = PiCamera()
 def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('/home/pi/FlatSatChallenge/Images/jessiewang') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+        repo.git.add('/home/pi/FlatSatChallenge/Images/jessiewang/') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
         repo.index.commit('New Photo')
         print('made the commit')
         origin = repo.remote('origin')
