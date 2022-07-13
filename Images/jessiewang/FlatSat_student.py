@@ -33,16 +33,17 @@ def git_push():
 
 
 #SET THRESHOLD
-threshold =100
+threshold =14
 
 
 #read acceleration
-while True:
+counter=0
+while True and counter<=1:
     accelX, accelY, accelZ = sensor.accelerometer
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
-    if abs(accelX) or abs(accelY) or abs(accelZ) >=threshold: 
+    if abs(accelX)>threshold  or abs(accelY)>threshold  or abs(accelZ) >threshold: 
         #TAKE/SAVE/UPLOAD A PICTURE
         name = "WangJ"     #Last Name, First Initial  ex. FoxJ
         if name:
@@ -53,5 +54,6 @@ while True:
             camera=PiCamera()
             camera.capture(imgname)
             git_push()
+            counter+=1
     #PAUSE
     
