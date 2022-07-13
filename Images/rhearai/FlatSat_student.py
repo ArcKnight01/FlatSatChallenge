@@ -48,7 +48,7 @@ while True and numPhotos < limPhotos:
     accelX, accelY, accelZ = sensor.accelerometer
 
     if (accelX>threshold or accelY>threshold or accelZ>threshold):
-        time.sleep(1)
+        time.sleep(3) #after it moves, it should wait a bit before taking photo
         #TAKE/SAVE/UPLOAD A PICTURE 
         name = "RaiR"     #Last Name, First Initial  ex. FoxJ
         if name:
