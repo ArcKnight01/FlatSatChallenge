@@ -33,25 +33,27 @@ def git_push():
 
 
 #SET THRESHOLD
-threshold =100
+threshold =14
 
 
 #read acceleration
-while True:
+counter=0
+while True and counter<=1:
     accelX, accelY, accelZ = sensor.accelerometer
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
-
+    if abs(accelX)>threshold  or abs(accelY)>threshold  or abs(accelZ) >threshold: 
         #TAKE/SAVE/UPLOAD A PICTURE
-    name = "WangJ"     #Last Name, First Initial  ex. FoxJ
-    if name:
-        t = time.strftime("_%H%M%S")      # current time string
-        imgname = ('/home/pi/FlatSatChallenge/Images/jessiewang/%s%s.jpg' % (name,t)) #change directory to your folder
+        name = "WangJ"     #Last Name, First Initial  ex. FoxJ
+        if name:
+            t = time.strftime("_%H%M%S")      # current time string
+            imgname = ('/home/pi/FlatSatChallenge/Images/jessiewang/%s%s.jpg' % (name,t)) #change directory to your folder
             #<YOUR CODE GOES HERE>#
-        camera.close()
-        camera=PiCamera()
-        camera.capture(imgname)
-        git_push()
+            camera.close()
+            camera=PiCamera()
+            camera.capture(imgname)
+            git_push()
+            counter+=1
     #PAUSE
     
