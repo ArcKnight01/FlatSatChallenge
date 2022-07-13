@@ -1,7 +1,7 @@
 #complete CAPITALIZED sections
 
-#AUTHOR: 
-#DATE:
+#AUTHOR:Rhea Rai 
+#DATE:7-12-2022 
 
 #import libraries
 import time
@@ -16,13 +16,16 @@ from picamera import PiCamera
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_fxos8700.FXOS8700(i2c)
 camera = PiCamera()
+import time
 
 #function for uploading image to Github
 def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('New Photo')
+        repo.git.add('Images/rhearai/')
+
+	 # repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+        repo.index.commit('testing to add new photos after adjusting threshold val')
         print('made the commit')
         origin = repo.remote('origin')
         print('added remote')
@@ -33,26 +36,33 @@ def git_push():
 
     
 #SET THRESHOLD
-threshold = 
+threshold = 15
 
+
+#can delete this later, but num of photos so my program actually stops:
+numPhotos = 0
+limPhotos = 1
 
 #read acceleration
-while True:
+while True and numPhotos < limPhotos:
     accelX, accelY, accelZ = sensor.accelerometer
 
-    #CHECK IF READINGS ARE ABOVE THRESHOLD
-        #PAUSE
-
-    
+    if (accelX>threshold or accelY>threshold or accelZ>threshold):
+        time.sleep(3) #after it moves, it should wait a bit before taking photo
         #TAKE/SAVE/UPLOAD A PICTURE 
-        name = ""     #Last Name, First Initial  ex. FoxJ
-        
+        name = "RaiR"     #Last Name, First Initial  ex. FoxJ
         if name:
             t = time.strftime("_%H%M%S")      # current time string
-            imgname = ('/home/pi/FlatSatChallenge/Images/YOURFOLDER/%s%s' % (name,t)) #change directory to your folder
-    
+            imgname = ('/home/pi/FlatSatChallenge/Images/rhearai/%s%s' % (name,t)) #change directory to your folder
+            camera.start_preview()
+            time.sleep(0.1)
+            camera.capture(imgname+'.jpg')
+            camera.stop_preview()
+            git_push()
+            time.sleep(1)
             #<YOUR CODE GOES HERE>#
-            
+            numPhotos += 1
+    #time.sleep(1)
     
-    #PAUSE
+#PAUSE
     
