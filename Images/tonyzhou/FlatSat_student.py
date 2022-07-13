@@ -21,7 +21,7 @@ camera = PiCamera()
 def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+        repo.git.add('Images/tonyzhou') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
         repo.index.commit('New Photo')
         print('made the commit')
         origin = repo.remote('origin')
@@ -33,23 +33,22 @@ def git_push():
 
     
 #SET THRESHOLD
-threshold = 
+threshold = 1000 
 
 
 #read acceleration
 while True:
     accelX, accelY, accelZ = sensor.accelerometer
-
+    name = "ZhouT"
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
 
     
         #TAKE/SAVE/UPLOAD A PICTURE 
-        name = ""     #Last Name, First Initial  ex. FoxJ
-        
-        if name:
-            t = time.strftime("_%H%M%S")      # current time string
-            imgname = ('/home/pi/FlatSatChallenge/Images/YOURFOLDER/%s%s' % (name,t)) #change directory to your folder
+        #name = "ZhouT"     #Last Name, First Initial  ex. FoxJ
+    if name:
+         t = time.strftime("_%H%M%S")      # current time string
+         imgname = ('/home/pi/FlatSatChallenge/Images/tonyzhou/%s%s' % (name,t)) #change directory to your folder
     
             #<YOUR CODE GOES HERE>#
             
