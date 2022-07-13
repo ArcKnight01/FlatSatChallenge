@@ -1,7 +1,7 @@
 #complete CAPITALIZED sections
 
-#AUTHOR:JessieWang
-#DATE:7/12
+#AUTHOR: 
+#DATE:
 
 #import libraries
 import time
@@ -21,8 +21,8 @@ camera = PiCamera()
 def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('/home/pi/FlatSatChallenge/Images/jessiewang/') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('scavenger hunt')
+        repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+        repo.index.commit('New Photo')
         print('made the commit')
         origin = repo.remote('origin')
         print('added remote')
@@ -31,29 +31,28 @@ def git_push():
     except:
         print('Couldn\'t upload to git')
 
-
+    
 #SET THRESHOLD
-threshold =14
+threshold = 
 
 
 #read acceleration
-counter=0
-while True and counter<1:
+while True:
     accelX, accelY, accelZ = sensor.accelerometer
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
-    if abs(accelX)>threshold  or abs(accelY)>threshold  or abs(accelZ) >threshold: 
-        #TAKE/SAVE/UPLOAD A PICTURE
-        name = "WangJ"     #Last Name, First Initial  ex. FoxJ
+
+    
+        #TAKE/SAVE/UPLOAD A PICTURE 
+        name = ""     #Last Name, First Initial  ex. FoxJ
+        
         if name:
             t = time.strftime("_%H%M%S")      # current time string
-            imgname = ('/home/pi/FlatSatChallenge/Images/jessiewang/%s%s.jpg' % (name,t)) #change directory to your folder
+            imgname = ('/home/pi/FlatSatChallenge/Images/YOURFOLDER/%s%s' % (name,t)) #change directory to your folder
+    
             #<YOUR CODE GOES HERE>#
-            camera.close()
-            camera=PiCamera()
-            camera.capture(imgname)
-            git_push()
-            counter+=1
+            
+    
     #PAUSE
     
