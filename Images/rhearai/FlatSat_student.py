@@ -25,7 +25,7 @@ def git_push():
         repo.git.add('Images/rhearai/')
 
 	 # repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('testing to add new photos after adjusting threshold val')
+        repo.index.commit('added photo')
         print('made the commit')
         origin = repo.remote('origin')
         print('added remote')
@@ -36,7 +36,7 @@ def git_push():
 
     
 #SET THRESHOLD
-threshold = 15
+threshold = 10
 
 
 #can delete this later, but num of photos so my program actually stops:
@@ -56,6 +56,7 @@ while True and numPhotos < limPhotos:
             imgname = ('/home/pi/FlatSatChallenge/Images/rhearai/%s%s' % (name,t)) #change directory to your folder
             camera.start_preview()
             time.sleep(0.1)
+            imgname = "rhearai_selfie" #for selfie
             camera.capture(imgname+'.jpg')
             camera.stop_preview()
             git_push()
