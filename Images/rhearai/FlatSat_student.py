@@ -1,7 +1,7 @@
 #complete CAPITALIZED sections
 
 #AUTHOR:Rhea Rai 
-#DATE:7-12-2022
+#DATE:7-12-2022 
 
 #import libraries
 import time
@@ -25,7 +25,7 @@ def git_push():
         repo.git.add('Images/rhearai/')
 
 	 # repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('New Photo')
+        repo.index.commit('testing to add new photos after adjusting threshold val')
         print('made the commit')
         origin = repo.remote('origin')
         print('added remote')
@@ -36,7 +36,7 @@ def git_push():
 
     
 #SET THRESHOLD
-threshold = -1 
+threshold = 15
 
 
 #can delete this later, but num of photos so my program actually stops:
