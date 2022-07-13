@@ -42,16 +42,16 @@ while True:
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
-
+    if abs(accelX) or abs(accelY) or abs(accelZ) >=threshold: 
         #TAKE/SAVE/UPLOAD A PICTURE
-    name = "WangJ"     #Last Name, First Initial  ex. FoxJ
-    if name:
-        t = time.strftime("_%H%M%S")      # current time string
-        imgname = ('/home/pi/FlatSatChallenge/Images/jessiewang/%s%s.jpg' % (name,t)) #change directory to your folder
+        name = "WangJ"     #Last Name, First Initial  ex. FoxJ
+        if name:
+            t = time.strftime("_%H%M%S")      # current time string
+            imgname = ('/home/pi/FlatSatChallenge/Images/jessiewang/%s%s.jpg' % (name,t)) #change directory to your folder
             #<YOUR CODE GOES HERE>#
-        camera.close()
-        camera=PiCamera()
-        camera.capture(imgname)
-        git_push()
+            camera.close()
+            camera=PiCamera()
+            camera.capture(imgname)
+            git_push()
     #PAUSE
     
