@@ -22,7 +22,7 @@ import time
 def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('/FlatSatChallenge/Images/rhearai/')
+        repo.git.add('Images/rhearai/')
 
 	 # repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
         repo.index.commit('New Photo')
@@ -36,11 +36,15 @@ def git_push():
 
     
 #SET THRESHOLD
-threshold =10 
+threshold = -1 
 
+
+#can delete this later, but num of photos so my program actually stops:
+numPhotos = 0
+limPhotos = 1
 
 #read acceleration
-while True:
+while True and numPhotos < limPhotos:
     accelX, accelY, accelZ = sensor.accelerometer
 
     if (accelX>threshold or accelY>threshold or accelZ>threshold):
@@ -51,10 +55,14 @@ while True:
             t = time.strftime("_%H%M%S")      # current time string
             imgname = ('/home/pi/FlatSatChallenge/Images/rhearai/%s%s' % (name,t)) #change directory to your folder
             camera.start_preview()
-            sleep(5)
-           
+            time.sleep(0.1)
+            camera.capture(imgname+'.jpg')
+            camera.stop_preview()
+            git_push()
+            time.sleep(1)
             #<YOUR CODE GOES HERE>#
-            
-    time.sleep(1)
-    #PAUSE
+            numPhotos += 1
+    #time.sleep(1)
+    
+#PAUSE
     
