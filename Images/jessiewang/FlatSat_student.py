@@ -44,6 +44,7 @@ while True and counter<1:
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
     if abs(accelX)>threshold  or abs(accelY)>threshold  or abs(accelZ) >threshold: 
+        time.sleep(2)
         #TAKE/SAVE/UPLOAD A PICTURE
         name = "WangJ"     #Last Name, First Initial  ex. FoxJ
         if name:
