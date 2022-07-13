@@ -36,7 +36,7 @@ def git_push():
 
     
 #SET THRESHOLD
-threshold = 15
+threshold = 10
 
 
 #can delete this later, but num of photos so my program actually stops:
