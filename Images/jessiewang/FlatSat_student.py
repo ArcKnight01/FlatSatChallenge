@@ -22,7 +22,7 @@ def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
         repo.git.add('/home/pi/FlatSatChallenge/Images/jessiewang/') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('New Photo')
+        repo.index.commit('scavenger hunt')
         print('made the commit')
         origin = repo.remote('origin')
         print('added remote')
@@ -38,7 +38,7 @@ threshold =14
 
 #read acceleration
 counter=0
-while True and counter<=1:
+while True and counter<1:
     accelX, accelY, accelZ = sensor.accelerometer
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
