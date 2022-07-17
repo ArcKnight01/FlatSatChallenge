@@ -54,7 +54,7 @@ while True:
 			#sleep(5)
 			#camera.stop_preview()
 			imgname = ('/home/pi/FlatSatChallenge/Images/ranvitha/%s%s' % (name,t)) #change directory to your folder
-			imgname = 'ranvitha.jpg'
+			#imgname = 'ranvitha.jpg'
 			#camera.capture(imgname + '.jpg')
 			cmd = "raspistill -vf -hf /home/pi/FlatSatChallenge/Images/ranvitha/" + imgname+ ".jpg"
 			subprocess.call(cmd, shell = True)
