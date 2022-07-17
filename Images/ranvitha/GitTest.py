@@ -8,7 +8,7 @@ import os
 def git_push():
     try:
         repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('/home/pi/FlatSatChallenge/Images/yourfolder/')
+        repo.git.add('/home/pi/FlatSatChallenge/Images/ranvitha/')
         repo.index.commit('New Git Test')
         print('made the commit')
         origin = repo.remote('origin')
@@ -21,7 +21,7 @@ def git_push():
 name = "RanvithaMuramreddy"
 
 #REPLACE 'yourfolder' with the name of your directory, then Run it!
-f = open(r'/home/pi/FlatSatChallenge/Images/ranvihta/%s.txt' % name,'w')
+f = open(r'/home/pi/FlatSatChallenge/Images/ranvitha/%s.txt' % name,'w')
 f.write('%s' % name)
 f.close()
 

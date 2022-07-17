@@ -1,7 +1,7 @@
 #complete CAPITALIZED sections
 
-#AUTHOR: 
-#DATE:
+#AUTHOR: Ranvitha
+#DATE: 7/13/2022
 
 #import libraries
 import time
@@ -19,40 +19,37 @@ camera = PiCamera()
 
 #function for uploading image to Github
 def git_push():
-    try:
-        repo = Repo('/home/pi/FlatSatChallenge')
-        repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
-        repo.index.commit('New Photo')
-        print('made the commit')
-        origin = repo.remote('origin')
-        print('added remote')
-        origin.push()
-        print('pushed changes')
-    except:
-        print('Couldn\'t upload to git')
+	try:
+		repo = Repo('/home/pi/FlatSatChallenge')
+        	repo.git.add('folder path') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+        	repo.index.commit('New Photo')
+        	print('made the commit')
+        	origin = repo.remote('origin')
+        	print('added remote')
+        	origin.push()
+        	print('pushed changes')
+    	except:
+        	print('Couldn\'t upload to git')
 
-    
+
 #SET THRESHOLD
-threshold = 
+threshold = 15
 
 
 #read acceleration
 while True:
-    accelX, accelY, accelZ = sensor.accelerometer
-
+	accelX, accelY, accelZ = sensor.accelerometer
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
+	if (accelx > thershold or accely > thershold or accelz > thershold):
+		time.sleep(1)
 
-    
-        #TAKE/SAVE/UPLOAD A PICTURE 
-        name = ""     #Last Name, First Initial  ex. FoxJ
-        
-        if name:
-            t = time.strftime("_%H%M%S")      # current time string
-            imgname = ('/home/pi/FlatSatChallenge/Images/YOURFOLDER/%s%s' % (name,t)) #change directory to your folder
-    
+        #TAKE/SAVE/UPLOAD A PICTURE
+		name = "MuramreddyR"     #Last Name, First Initial  ex. FoxJ
+        	if name:
+            		t = time.strftime("_%H%M%S")      # current time string
+            		imgname = ('/home/pi/FlatSatChallenge/Images/ranvitha/%s%s' % (name,t)) #change directory to your folder
+	    		camer.capture(imgname)
             #<YOUR CODE GOES HERE>#
-            
-    
-    #PAUSE
-    
+      #PAUSE
+	    		time.sleep(1)
