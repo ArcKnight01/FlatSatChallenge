@@ -35,7 +35,7 @@ def git_push():
 
 
 #SET THRESHOLD
-threshold = 10
+threshold = 15
 
 
 #read acceleration
