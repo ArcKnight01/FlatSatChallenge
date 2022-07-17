@@ -23,7 +23,7 @@ sensor = adafruit_fxos8700.FXOS8700(i2c)
 def git_push():
 	try:
 		repo = Repo('/home/pi/FlatSatChallenge')
-		repo.git.add('/home/pi/FlatSatChallenge/Images/ranvitha') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+		repo.git.add('Images/ranvitha/') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
 		repo.index.commit('New Photo')
 		print('made the commit')
 		origin = repo.remote('origin')
