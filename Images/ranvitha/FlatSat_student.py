@@ -22,8 +22,8 @@ sensor = adafruit_fxos8700.FXOS8700(i2c)
 #function for uploading image to Github
 def git_push():
 	try:
-		repo = Repo('/home/pi/FlatSatChallenge')
-		repo.git.add('Images/ranvitha/') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
+		repo = Repo('/home/pi/FlatSatChallenge/')
+		repo.git.add('/home/pi/FlatSatChallenge/Images/ranvitha') #PATH TO YOUR IMAGES FOLDER, SHOULD BE LOCATED IN FlatSatChallenge/Images/YOURFOLDER
 		repo.index.commit('New Photo')
 		print('made the commit')
 		origin = repo.remote('origin')
@@ -35,7 +35,7 @@ def git_push():
 
 
 #SET THRESHOLD
-threshold = 15
+threshold = 10
 
 
 #read acceleration
@@ -44,7 +44,7 @@ while True:
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
 	if (accelX > threshold or accelY > threshold or accelZ > threshold):
-		time.sleep(1)
+		#time.sleep(1)
 
         #TAKE/SAVE/UPLOAD A PICTURE
 		name = 'MuramreddyR'     #Last Name, First Initial  ex. FoxJ
@@ -56,4 +56,4 @@ while True:
 			git_push()
             #<YOUR CODE GOES HERE>#
       #PAUSE
-	time.sleep(1)
+	#time.sleep(1)
