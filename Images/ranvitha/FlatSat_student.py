@@ -47,16 +47,11 @@ while True:
 		time.sleep(1)
 
         #TAKE/SAVE/UPLOAD A PICTURE
-		name = "MuramreddyR"     #Last Name, First Initial  ex. FoxJ
+		name = 'MuramreddyR'     #Last Name, First Initial  ex. FoxJ
 		if name:
-			t = time.strftime("_%H%M%S")      # current time string
-			#camera.start_preview()
-			#sleep(5)
-			#camera.stop_preview()
+			t = time.strftime('_%H%M%S')      # current time string
 			imgname = ('/home/pi/FlatSatChallenge/Images/ranvitha/%s%s' % (name,t)) #change directory to your folder
-			#imgname = 'ranvitha.jpg'
-			#camera.capture(imgname + '.jpg')
-			cmd = "raspistill -vf -hf /home/pi/FlatSatChallenge/Images/ranvitha/" + imgname+ ".jpg"
+			cmd = 'raspistill -vf -hf /home/pi/FlatSatChallenge/Images/ranvitha/' + imgname + '.jpg'
 			subprocess.call(cmd, shell = True)
 			git_push()
             #<YOUR CODE GOES HERE>#
