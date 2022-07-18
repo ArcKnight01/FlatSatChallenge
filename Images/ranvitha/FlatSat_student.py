@@ -51,7 +51,7 @@ while True:
 		if name:
 			t = time.strftime('_%H%M%S')      # current time string
 			#imgname = ('/home/pi/FlatSatChallenge/Images/ranvitha/%s%s' % (name,t)) #change directory to your folder
-			cmd = ('raspistill -vf -hf ~/FlatSatChallenge/Images/ranvitha/%s%s' % (name, t)) + '.jpg'
+			cmd = ('raspistill -vf -hf /home/pi/FlatSatChallenge/Images/ranvitha/%s%s' % (name, t)) + '.jpg'
 			subprocess.call(cmd, shell = True)
 			git_push()
             #<YOUR CODE GOES HERE>#
