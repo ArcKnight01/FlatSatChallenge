@@ -1,7 +1,7 @@
 #complete CAPITALIZED sections
 
-#AUTHOR: 
-#DATE:
+#AUTHOR: tonyzhou 
+#DATE: 7/18/22
 
 #import libraries
 import time
@@ -43,7 +43,7 @@ while True:
     #CHECK IF READINGS ARE ABOVE THRESHOLD
         #PAUSE
 
-    
+    print('Acceleration (m/s^2): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(accelX, accelY, accelZ))
         #TAKE/SAVE/UPLOAD A PICTURE 
         #name = "ZhouT"     #Last Name, First Initial  ex. FoxJ
     if name:
